@@ -1,14 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit';
-
-const currencyFilterSlice = createSlice({
-  name: 'currencyFilter',
-  initialState: 'USD',
-  reducers: {
-    setCurrency: (state, action) => {
+const initialCurrencyFilter = 'USD';
+export const currencyFilterReducer = (
+  currencyFilter = initialCurrencyFilter,
+  action
+) => {
+  switch (action.type) {
+    case 'currencyFilter/setCurrency': {
       return action.payload;
-    },
-  },
-});
+    }
+    default: {
+      return currencyFilter;
+    }
+  }
+};
 
-export const { setCurrency } = currencyFilterSlice.actions;
-export default currencyFilterSlice.reducer;
+export const setCurrency = (currency) => {
+  return {
+    type: 'currencyFilter/setCurrency',
+    payload: currency,
+  };
+};

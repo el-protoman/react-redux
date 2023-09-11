@@ -10,7 +10,7 @@ import { getFilteredItems } from '../../utilities/utilities.js'; // Import the f
 
 export const Inventory = ({ inventory, currencyFilter, dispatch, searchTerm }) => {
   const onMount = () => {
-    dispatch(loadData(inventory));
+    dispatch(loadData());
   };
   useEffect(onMount, [dispatch]);
 
@@ -48,4 +48,3 @@ export const Inventory = ({ inventory, currencyFilter, dispatch, searchTerm }) =
     );
   }
 };
-

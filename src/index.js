@@ -5,12 +5,12 @@ import { App } from './app/App.js';
 
 const root = createRoot(document.getElementById('root'));
 
+// Pass state and dispatch props to the <App /> component.
 const render = () => {
   root.render(
     <App 
       state={store.getState()}
       dispatch={store.dispatch}
-      store={store}
     />)
 };
 render();
